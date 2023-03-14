@@ -10,4 +10,4 @@ jobs:
       - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
       - run: docker build -t eduardobg99/hola-docker:$CIRCLE_SHA1
       - run: docker push eduardobg99/hola-docker:$CIRCLE_SHA1
-      - run: ssh -o StrictHostKeyChecking=no ubuntu@34.207.120.254 "/bin/bash /home/ubuntu/desploy.sh"
+      - run: ssh -o StrictHostKeyChecking=no ubuntu@34.207.120.254 "/bin/bash /home/ubuntu/desploy.sh $CIRCLE_SHA1"
